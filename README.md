@@ -1,6 +1,11 @@
 **Car Recommendation System**
 **Version: 1.0.0**
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
 **Introduction**
 The Car Recommendation System is a web application designed to provide users with car recommendations based on their specified preferences. The system utilizes content-based filtering to suggest cars that best match the user's input criteria, such as seating capacity, fuel type, price range, transmission type, and body type.
 
