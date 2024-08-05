@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Recommendation System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href = "style.css">
+
+
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+        }
+        footer {
+            background-color: #000000;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family:'Courier New', Courier, monospace
+        }
+    </style>
+    
+
+</head>
+<body>
+    <script src="C:\Users\Dhrumil\Desktop\project\project\static\js\script.js" defer></script>
+    <!-- Title Section -->
+    <header class="title-section">
+        <div class="container text-center">
+            <h1 class="display-4">Welcome to Car Recommendation System</h1>
+        </div>
+    </header>
+    
+    <div class="container mt-5">
+        <form id="recommendationForm">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Capacity">Seating Capacity</label>
+                    <input type="number" class="form-control" id="Capacity" name="Capacity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="fuelType">Select Fuel Type:</label>
+                    <select class="form-control" id="fuelType" name="fuelType" >
+                        <option value="Petrol" >Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Electric">Electric</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="startingPrice">Starting Price:</label>
+                    <input type="number" class="form-control" id="startingPrice" name="startingPrice">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="endingPrice">Ending Price:</label>
+                    <input type="number" class="form-control" id="endingPrice" name="endingPrice">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="transmissionType">Select Transmission Type:</label>
+                    <select class="form-control" id="transmissionType" name="transmissionType">
+                        <option value="Manual">Manual</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Automatic">Automatic</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="bodyType">Select Body Type:</label>
+                    <select class="form-control" id="bodyType" name="bodyType">
+                        <option value="SUV">SUV</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Convertible">Convertible</option>
+                        <option value="Pickup Truck">Pickup Truck</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="Wagon">Wagon</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="MUV">MUV</option>
+                        <option value="Minivan">Minivan</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Get Car Recommendations</button>
+        </form>
+        
+        <div id="recommendations" class="mt-5">
+            <ul id="carList"></ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Car Recommendation System By DhrumilPawar1128
+    </footer>
+</body>
+</html>
