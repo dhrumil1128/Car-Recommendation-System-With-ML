@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href = "style.css">
-
-
+    <link rel="stylesheet" href="./Home.css">
 
     <style>
         body {
@@ -28,14 +26,51 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            font-family:'Courier New', Courier, monospace
+            font-family: 'Courier New', Courier, monospace;
+        }
+            .results-section {
+                margin-top: 20px;
+                max-height: 300px; /* Limit the height of the recommendations section */
+                overflow-y: auto; /* Add vertical scrollbar when content overflows */
+                border: 1px solid #ddd; /* Optional: Add a border for clarity */
+                padding: 10px;
+                border-radius: 5px;
+            }
+        
+            /* Customize scrollbar for modern browsers */
+            .results-section::-webkit-scrollbar {
+                width: 8px; /* Width of the scrollbar */
+            }
+            .results-section::-webkit-scrollbar-thumb {
+                background-color: #888; /* Color of the scrollbar thumb */
+                border-radius: 5px; /* Rounded edges for the thumb */
+            }
+            .results-section::-webkit-scrollbar-thumb:hover {
+                background-color: #555; /* Darker color on hover */
+            }
+        #carList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #carList li {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Vertical Hover Effect */
+        #carList li:hover {
+            transform: translateY(-10px); /* Moves the item up on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow effect */
+            background-color: #e9ecef; /* Optional: Change background color slightly */
         }
     </style>
-    
-
 </head>
 <body>
-    <script src="C:\Users\Dhrumil\Desktop\project\project\static\js\script.js" defer></script>
+    <script src="./script.js" defer></script>
+    
     <!-- Title Section -->
     <header class="title-section">
         <div class="container text-center">
@@ -44,41 +79,45 @@
     </header>
     
     <div class="container mt-5">
+        <!-- Form to submit car preferences -->
         <form id="recommendationForm">
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="Capacity">Seating Capacity</label>
-                    <input type="number" class="form-control" id="Capacity" name="Capacity">
+                    <input type="number" class="form-control" id="Capacity" name="seatingCapacity" placeholder="E.g., 5">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="fuelType">Select Fuel Type:</label>
-                    <select class="form-control" id="fuelType" name="fuelType" >
-                        <option value="Petrol" >Petrol</option>
+                    <select class="form-control" id="fuelType" name="fuelType">
+                        <option value="" selected disabled>Choose...</option>
+                        <option value="Petrol">Petrol</option>
                         <option value="Diesel">Diesel</option>
                         <option value="Electric">Electric</option>
+                        <option value="Electric">CNG</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="startingPrice">Starting Price:</label>
-                    <input type="number" class="form-control" id="startingPrice" name="startingPrice">
+                    <input type="number" class="form-control" id="startingPrice" name="startingPrice" placeholder="E.g., 500000">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="endingPrice">Ending Price:</label>
-                    <input type="number" class="form-control" id="endingPrice" name="endingPrice">
+                    <input type="number" class="form-control" id="endingPrice" name="endingPrice" placeholder="E.g., 1500000">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="transmissionType">Select Transmission Type:</label>
                     <select class="form-control" id="transmissionType" name="transmissionType">
+                        <option value="" selected disabled>Choose...</option>
                         <option value="Manual">Manual</option>
-                        <option value="Electric">Electric</option>
                         <option value="Automatic">Automatic</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="bodyType">Select Body Type:</label>
                     <select class="form-control" id="bodyType" name="bodyType">
+                        <option value="" selected disabled>Choose...</option>
                         <option value="SUV">SUV</option>
                         <option value="Sedan">Sedan</option>
                         <option value="Coupe">Coupe</option>
@@ -96,8 +135,12 @@
             <button type="submit" class="btn btn-primary">Get Car Recommendations</button>
         </form>
         
-        <div id="recommendations" class="mt-5">
-            <ul id="carList"></ul>
+        <!-- Results Section -->
+        <div class="results-section mt-5">
+            <h4>Recommendations:</h4>
+            <ul id="carList">
+                <!-- Recommendations will appear here dynamically -->
+            </ul>
         </div>
     </div>
 
